@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-sm-12 text-center">
+    <h1>Room {{roomName}}</h1>
+    <div *ngIf="room">
+      <div class="row">
+        <div class="col-sm-4 col-sm-offset-4 text-center">
+          <h2 *ngIf="room.lastTileShown != 0" class="bg-primary" style="padding-top:10px; padding-bottom:10px">Place Tile {{room.lastTileShown}}</h2>
+          <h2 *ngIf="room.lastTileShown == 0" class="bg-primary" style="padding-top:10px; padding-bottom:10px">Click Next When Ready</h2>
+        </div>
+      </div>  
+      <div class="row">
+        <div class="col-sm-4 col-sm-offset-4 text-center">
+          <button class="btn btn-success btn-block" *ngIf="!room.isComplete" (click)="showNextTile()">Next</button>
+        </div>
+      </div>      
+      <hr />
+      <div class="row">
+        <div class="col-sm-4 col-sm-offset-4">
+          <ol>
+            <li *ngFor="let tile of room.selectedTiles">
+              <strong>{{tile}}</strong>
+            </li>
+          </ol>
+        </div>
+      </div>    
+    </div>
+  </div>
+</div>
